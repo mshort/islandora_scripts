@@ -2,9 +2,13 @@
 
 This repository contains assorted scripts used during the migration of NIU's digital collections into Islandora. Also included are scripts and stylesheets used to correct problems with earlier migrations.
 
+##Metdata Remediation
+
+There were significant problems with the metadata migrated into Islandora. In part, this was because NIU provided Discovery Garden with a bad mapping from the Lincoln database to MODS, including elements that do not exist. There was also a great deal of variety between collections and content types, so one mapping did not fit all. The xsl directory contains the stylesheets used to address some of these problems. transform.py was the originally script used to apply these transforms.
+
 ##Philologic
 
-Many of the Philologic documents reference images that were never migrated. These were mostly illustrations and figures, which did not have metadata in the Lincoln database. When Discovery Garden ran the migration, they identified these missing images within the Philologic documents using the span "ARTFL-figure-missing." philologic_missing_images.py identifies these images by their sysid, which was used to retrieve the images themselves from the decomissioned Lincoln fileserver. These were then batch ingested as basic or large images into philologic:collection. philologic_missing_link_fix.py replaces the spans in every Philologic document with the appropriate reference to the newly-created image object in Fedora.
+Many of the Philologic documents reference images that were never migrated. These were mostly illustrations and figures, which did not have metadata in the Lincoln database. When Discovery Garden ran the migration, they identified these missing images within the Philologic documents using the span "ARTFL-figure-missing." philologic_missing_images.py retrieves the sysid in these spans, which was used to retrieve the images themselves from the decomissioned Lincoln fileserver. These were then batch ingested as basic or large images into philologic:collection. philologic_missing_link_fix.py replaces the spans in every Philologic document with the appropriate reference to the newly-created image object in Fedora.
 
 The contents of the Philologic documents were not being indexed. philologic_add_text.py extracts the text from these documents, removes all HTML entities, and adds that resulting document as a seperate datastream, TEXT.
 
