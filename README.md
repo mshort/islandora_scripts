@@ -1,5 +1,4 @@
 #NIU Islandora Migration Scripts
-=================
 
 This repository contains assorted scripts used during the migration of NIU's digital collections into Islandora. Also included are scripts and stylesheets used to correct problems with earlier migrations.
 
