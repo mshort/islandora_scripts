@@ -26,7 +26,7 @@ for i in *.wmv; do ffmpeg -i "$i" -y -f mp4 -vcodec libx264 -preset medium -acod
 
 add_datastream_from_file.php adds these MP4s to the existing video objects and replaces the SEADL video cModel with the Islandora video cModel.
 
-sea_cModels.py converts custom content models in use with Islandora 6 into content models for Islandora 7.
+seadl_cModels.py converts custom content models in use with Islandora 6 into content models for Islandora 7.
 
 Many collections were purged prior to migration, but the relationships to those collections were not removed. remove_collection.php removes these phantom collection references.
 
