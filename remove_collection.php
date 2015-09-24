@@ -26,7 +26,7 @@ foreach ($objects as $pid){
 
         $object = islandora_object_load($pid[pid][value]);
         echo "Processing: " . $object->id . "\n";
-	$object->relationships->remove(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'SEAImages:IndonesiaCollection');
+	$object->relationships->remove(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'SEAImages:VietnameseCollection');
         echo "Finished converting ".$object->id."\n\n";
 }
 
