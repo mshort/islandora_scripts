@@ -3,7 +3,7 @@
 <?php
 
 $connection = islandora_get_tuque_connection();
-$children = $connection->repository->ri->sparqlQuery('select distinct ?pid where {?pid <fedora-rels-ext:isMemberOfCollection> <info:fedora/rbsc:schreiner> ; <fedora-model:hasModel> <info:fedora/islandora:sp_large_image_cmodel> . OPTIONA$
+$children = $connection->repository->ri->sparqlQuery('select distinct ?pid where {?pid <fedora-rels-ext:isMemberOfCollection> <info:fedora/rbsc:schreiner> ; <fedora-model:hasModel> <info:fedora/islandora:sp_large_image_cmodel> . OPTIONAL {?pid <fedora-rels-ext:isConstituentOf> ?parent .}FILTER (!BOUND(?parent))}', 'rows');
 
 foreach ($children as $row){
         $pid = $row['pid']['value'];
