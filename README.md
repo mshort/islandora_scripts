@@ -18,7 +18,7 @@ The original intention was to convert Philologic to TEI. ate2tei.xsl was an earl
 
 We had TIFFs for many of the images in SEADL, but only the JPEGs and DJVU derivatives were ingested. seadl_tiff.php searches for these TIFFs by filename on the NAS, then adds them as OBJ datastreams to existing objects, creates appropriate derivatives, and changes the content model from basic image to large image. I didn't remove the DJVU and MEDIUM_SIZE datastreams from these objects, just in case there was a problem with the TIFF migration.
 
-We were unable to find TIFFs for many of the basic images. The Southeast Asian curator felt strongly that the same viewer should be used for every image -- in this case, OpenSeadragon. jpeg_to_tiff.php converts the MEDIUM_SIZE of existing basic images to TIFF using ImageMagick, then proceeds as above.
+We were unable to find TIFFs for many of the basic images. The Southeast Asia Collection curator felt strongly that the same viewer should be used for every image -- in this case, OpenSeadragon. jpeg_to_tiff.php converts the MEDIUM_SIZE of existing basic images to TIFF using ImageMagick, then proceeds as above.
 
 Most vidoes were not ingested into Fedora. Instead, a link to the file on a streaming server was added as a datastream. When the streaming server was decomissioned, these vidoes needed to be moved into the repository. I converted all of these files from WMV to MP4 using ffmpeg:
 
